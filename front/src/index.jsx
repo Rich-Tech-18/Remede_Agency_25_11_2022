@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Register from './components/Register/Register';
+import User from './components/User/User';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
@@ -25,6 +26,8 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/sign-in" element={<Register />}></Route>
+        <Route path="/user" element={<User />}></Route>
+        <Route path="/*" element={<Navigate to={"/"} replace/>}></Route>
     </Routes>
     <Footer />
   </Router>

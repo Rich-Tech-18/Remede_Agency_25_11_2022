@@ -11,3 +11,6 @@ text-decoration: underline;
     margin-right: 0.28rem;
 }
 
+.none{
+  display: none;
+}
