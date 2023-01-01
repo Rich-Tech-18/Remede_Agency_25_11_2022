@@ -111,6 +111,38 @@ paths:
         '500':
           description: Internal Server Error
   /transaction:
+    get:
+      security:
+          - Bearer: []
+      tags:
+        - Transaction
+      summary: Transaction profil
+      description: Get transaction of User
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+        - in: body
+          name: user ID
+          description: update user Transaction
+          required: true
+          schema:
+            $ref: '#/definitions/UserId'
+      responses:
+        '200':
+          description: Login Successfully
+          schema:
+            $ref: '#/definitions/Transaction'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+      # security:
+      #   - petstore_auth:
+      #       - write:pets
+      #       - read:pets
+  /transaction/note:
     put:
       security:
           - Bearer: []
@@ -124,25 +156,48 @@ paths:
           description: Attach Bearer JWT token
           required: true
         - in: body
-          name: body
-          description: Get transaction of profil
+          name: user ID
+          description: update user Transaction
           required: true
           schema:
-            $ref: '#/definitions/UserProfile'
+            $ref: '#/definitions/EditNote'
       responses:
         '200':
-          description: Successful operation
-          
+          description: Login Successfully
+          schema:
+            $ref: '#/definitions/Transaction'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: Pet not found
-        '405':
-          description: Validation exception
-      # security:
-      #   - petstore_auth:
-      #       - write:pets
-      #       - read:pets
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /transaction/category:
+    put:
+      security:
+          - Bearer: []
+      tags:
+        - Transaction
+      summary: Transaction profil
+      description: Get transaction of User
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+        - in: body
+          name: user ID
+          description: update user Transaction
+          required: true
+          schema:
+            $ref: '#/definitions/EditCategory'
+      responses:
+        '200':
+          description: Login Successfully
+          schema:
+            $ref: '#/definitions/Transaction'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
 
     
 
@@ -204,5 +259,58 @@ definitions:
   Transaction:
     type: object
     properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          transactionId:
+            type: integer
+          userId:
+            type: integer
+          date:
+            type: string
+            format: date
+          description:
+            type: string
+          amout: 
+            type: number
+            format: float
+          balance:
+            type: number
+            format: float
+          transactionType:
+            type: string
+          category: 
+            type: string
+          notes:
+            type: string
+          curency:
+            type: string
+  UserId:
+    type: object
+    properties:
+      userID:
+        type: integer
+  EditCategory:
+    type: object
+    properties:
       transactionId:
         type: integer
+      userId:
+        type: integer
+      category:
+        type: string
+  EditNote:
+    type: object
+    properties:
+      transactionId:
+        type: integer
+      userId:
+        type: integer
+      notes:
+        type: string
+        
+      
