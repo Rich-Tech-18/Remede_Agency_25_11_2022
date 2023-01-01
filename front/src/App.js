@@ -1,57 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import Register from './components/Register/Register';
+import User from './components/User/User';
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import './App.css';
+// import { useState } from 'react';
+// import {hasAuthenticated} from './services/authAPI';
+// import Auth from './context/Auth';
+import { Provider } from 'react-redux';
+import { store } from './store/Store';
+import { useDispatch } from 'react-redux';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <Provider store={store} >
+      <Router>
+        <Header />
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/sign-in" element={<Register />}></Route>
+            <Route exact path="/user" element={<User />}></Route>
+            <Route exact path="/*" element={<Navigate to={"/"} replace/>}></Route>
+          </Routes>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 
