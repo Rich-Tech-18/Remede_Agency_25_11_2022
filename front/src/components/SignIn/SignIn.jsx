@@ -31,7 +31,7 @@ const SignIn = () => {
             
             {(authenticatedState && (
             <>
-                    <Link className="main-nav-item" to="/user">
+                    <Link className="main-nav-item" to="/profile">
                 <i className="fa fa-user-circle"></i>
                     {name}
                 </Link>
@@ -41,7 +41,7 @@ const SignIn = () => {
             </>
             )) || (
                 <>
-                <Link to="/sign-in" className="main-nav-item">
+                <Link to="/login" className="main-nav-item">
                 <i className="fa fa-user-circle"></i>Sign In
             </Link>
             </>

@@ -117,7 +117,7 @@ paths:
       tags:
         - Transaction
       summary: Transaction profil
-      description: Get transaction of User
+      description: Get all transaction of User
       parameters:
         - in: header
           name: Authorization
@@ -142,14 +142,14 @@ paths:
       #   - petstore_auth:
       #       - write:pets
       #       - read:pets
-  /transaction/note:
-    put:
+  /transaction/{id}:
+    get:
       security:
           - Bearer: []
       tags:
         - Transaction
       summary: Transaction profil
-      description: Get transaction of User
+      description: Get transaction ID of User
       parameters:
         - in: header
           name: Authorization
@@ -160,7 +160,7 @@ paths:
           description: update user Transaction
           required: true
           schema:
-            $ref: '#/definitions/EditNote'
+            $ref: '#/definitions/getTransaction'
       responses:
         '200':
           description: Login Successfully
@@ -170,14 +170,13 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-  /transaction/category:
     put:
       security:
           - Bearer: []
       tags:
         - Transaction
       summary: Transaction profil
-      description: Get transaction of User
+      description: Edit transaction ID of User
       parameters:
         - in: header
           name: Authorization
@@ -188,7 +187,7 @@ paths:
           description: update user Transaction
           required: true
           schema:
-            $ref: '#/definitions/EditCategory'
+            $ref: '#/definitions/EditInformation'
       responses:
         '200':
           description: Login Successfully
@@ -198,9 +197,6 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-
-    
-
 
 securityDefinitions:
   Bearer:
@@ -294,16 +290,7 @@ definitions:
     properties:
       userID:
         type: integer
-  EditCategory:
-    type: object
-    properties:
-      transactionId:
-        type: integer
-      userId:
-        type: integer
-      category:
-        type: string
-  EditNote:
+  EditInformation:
     type: object
     properties:
       transactionId:
@@ -312,5 +299,14 @@ definitions:
         type: integer
       notes:
         type: string
+      category:
+        type: string
+  getTransaction:
+    type: object
+    properties:
+      transactionId:
+        type: integer
+      userId:
+        type: integer
         
       

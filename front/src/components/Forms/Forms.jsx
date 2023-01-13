@@ -45,7 +45,7 @@ const Forms = () => {
         // addItem('mailUser', data.data.body.email);
         dispatch(authenticated());
         dispatch(nameState(userJSON.firstName));
-        navigate('/user', {replace:true});
+        navigate('/profile', {replace:true});
       }
     } catch (response){
       console.log(response)

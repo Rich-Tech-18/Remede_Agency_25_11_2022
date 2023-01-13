@@ -19,8 +19,8 @@ function App() {
         <Header />
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/sign-in" element={<Register />}></Route>
-            <Route exact path="/user" element={<User />}></Route>
+            <Route exact path="/login" element={<Register />}></Route>
+            <Route exact path="/profile" element={<User />}></Route>
             <Route exact path="/*" element={<Navigate to={"/"} replace/>}></Route>
           </Routes>
         <Footer />
