@@ -42,9 +42,10 @@ export async function updateProfil(credentials, token){
 
 export function logout() {
     removeItem('tokenUser');
-    removeItem('idUser');
-    removeItem('lastNameUser');
-    removeItem('firstNameUser');
-    removeItem('mailUser');
+    removeItem('infoUser');
+    // removeItem('idUser');
+    // removeItem('lastNameUser');
+    // removeItem('firstNameUser');
+    // removeItem('mailUser');
 }
 

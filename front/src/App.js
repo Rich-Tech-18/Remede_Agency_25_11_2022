@@ -10,7 +10,7 @@ import './App.css';
 // import Auth from './context/Auth';
 import { Provider } from 'react-redux';
 import { store } from './store/Store';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 function App() {
   return (

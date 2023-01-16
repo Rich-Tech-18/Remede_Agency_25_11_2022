@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom" ;
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import { login, loginAuthorization } from "../../services/authAPI";
 import { addItem, getItem } from "../../services/LocalStorage";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authenticated, nameState } from "../../store/Store";
 import './Forms.css';
 

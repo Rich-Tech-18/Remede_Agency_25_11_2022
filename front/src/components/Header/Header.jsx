@@ -23,12 +23,11 @@ const Header = () => {
   useEffect(() => {
      if(isAuthenticated === true && location === '/login'){
     navigate('/profile');
-  };
+  }
   if(isAuthenticated === false && location === '/profile'){
     navigate('/login');
   };
   });
- 
   
     return (
         <header>

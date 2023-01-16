@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+// import { useContext, useEffect } from 'react';
 import { logout } from '../../services/authAPI';
 import { authenticated } from '../../store/Store';
 import { useDispatch, useSelector } from 'react-redux';
-import { getItem } from '../../services/LocalStorage';
+// import { getItem } from '../../services/LocalStorage';
 import './SignIn.css';
 
 
@@ -11,7 +11,7 @@ const SignIn = () => {
     const dispatch = useDispatch();
     const authenticatedState = useSelector((state) => state.isAuthenticated);
     const name = useSelector((state) => state.firstName);
-    const firstName = getItem('firstNameUser');
+    // const firstName = getItem('firstNameUser');
     // const  isAuthenticated  = useContext(Auth);
     const navigate = useNavigate();
     const handleLogOut =(e) => {

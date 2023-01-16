@@ -10,14 +10,18 @@ const UserHeader = () => {
   const infoUserJSON = JSON.parse(getItem("infoUser"));
   const dispatch = useDispatch();
   const editState = useSelector((state) => state.editForm);
-
+  
   const handleEdit = (e) => {
     e.preventDefault();
     dispatch(editFormClick())
   };
     return (
         <div className="header">
-        <h1>Welcome back<br />{editState === true ? <EditForm firstName={infoUserJSON.firstName} lastName={infoUserJSON.lastName}/> : infoUserJSON.firstName + ' ' + infoUserJSON.lastName + '!'}</h1>
+        
+        <h1>Welcome back<br />
+        {infoUserJSON === null ? null : editState === true ? <EditForm firstName={infoUserJSON.firstName} lastName={infoUserJSON.lastName}/> : infoUserJSON.firstName + ' ' + infoUserJSON.lastName + '!'}
+        {/* {editState === true ? <EditForm firstName={infoUserJSON.firstName} lastName={infoUserJSON.lastName}/> : infoUserJSON.firstName + ' ' + infoUserJSON.lastName + '!'} */}
+        </h1>
         {editState === true ? '': <button className="edit-button" onClick={handleEdit}>Edit Name</button>}
       </div>
     )

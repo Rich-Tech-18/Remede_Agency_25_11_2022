@@ -26,7 +26,7 @@ const EditForm = ({lastName, firstName}) => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const response = await updateProfil(edit, tokenJSON.token);
+            await updateProfil(edit, tokenJSON.token);
             // removeItem('lastNameUser');
             // removeItem('firstNameUser');
             removeItem("infoUser")
